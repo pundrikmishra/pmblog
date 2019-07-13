@@ -3,7 +3,6 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $database= "pmblog";
-
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     // set the PDO error mode to exception

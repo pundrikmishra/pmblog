@@ -1,3 +1,17 @@
+<?php
+    $data= array();
+    $select= $conn->prepare("select * from `blog` order by `id` desc");
+    $select->execute();
+    
+    
+    foreach($result as $row){
+            $data[]=$row;
+        
+    }
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+?>
 <h2> Blog Updates</h2>
 <div class="container">
     <?php
