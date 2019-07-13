@@ -1,5 +1,5 @@
 <?php
-    include('localhost/db/db_functions.php');
+    //include("./db/db_functions.php");
     $data= get_all_data_from_table('blog');
     // $data=array();
     // $select= $conn->prepare("select * from `blog` order by `id` desc");
@@ -17,11 +17,14 @@
     // {
     //     //$_SESSION['error']= "Email or password is wrong";
     // }
+    // echo "<pre>";
+    // print_r($data);
+    // echo "<pre>";
 ?>
 <h2> Blog Updates</h2>
 <div class="container">
     <?php
-    for($i=0; $i<count($result); $i++){
+    for($i=0; $i<count($data); $i++){
     ?>
     
     <div class="row">

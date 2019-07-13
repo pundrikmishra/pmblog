@@ -13,5 +13,5 @@ catch(PDOException $e)
     {
     echo "Connection failed: " . $e->getMessage();
     }
-include_once('db_functions.php');
+    include('db_functions.php');
 ?>
