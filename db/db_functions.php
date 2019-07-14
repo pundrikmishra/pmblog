@@ -27,7 +27,7 @@ function get_data_by_key($key,$val,$table)
     $data=array();
     $select= $GLOBALS['conn']->prepare("select * from `".$table."` where `".$key."` = '".$val."' ");
     $select->execute();
-    $result = $select->fetchAll();
+    $result = $select->fetchAll(m);
     $total_row=$select->rowCount();
     if($total_row>0)
     {

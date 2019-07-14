@@ -9,15 +9,7 @@
         <h1> My New Blog </h1>
         <hr>
         <?php   include('plug_in/blog.php');   ?>    
-</div>
-
-
-
-
-
-
+    </div>
 <?php   include('site_script.php');   ?>    
-</body>
-
-  
+</body>  
 </html>
