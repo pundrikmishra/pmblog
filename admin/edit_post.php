@@ -1,3 +1,4 @@
+<?php include('../db/db_setup.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,26 @@
     <div class="container">
         <h1> Edit Your Post</h1>
         <hr>
+        <?php
+        if(isset($_SESSION['success']))
+        {
+            foreach($_SESSION['success'] as $success)
+            {
+                echo "<font color='green'><b>".$success."</b></font><br>";
+            }
+            
+            session_destroy();
+        }
+        elseif(isset($_SESSION['fail']))
+        {
+            // foreach($_SESSION['fail'] as $_SESSION['fail'])
+            // {
+            //     echo "<font color='green'><b>".$_SESSION['fail']."</b></font><br>";
+            // }
+            echo "<font color='red'><b>".$_SESSION['fail']."</b></font><br>";    
+            session_destroy();
+        }
+        ?>
         <form method="post" action="submit_post.php">
             <label>Enter Post Title</label><br>
             <input type="text" class="form-control" name="title"><br>
