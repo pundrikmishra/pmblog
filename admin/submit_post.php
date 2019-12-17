@@ -3,7 +3,6 @@
 include('../db/db_setup.php');
 if(check_spcl($_POST['title'])==0){
     $_SESSION['fail']="Sorry limited characters allowed in title ";
-    echo $_SESSION['fail'];
     header('location:edit_post.php');
 
 }else{
@@ -15,19 +14,19 @@ $auth="pm";
 $s_desc=$_POST['s_desc'];
 $post_data=$_POST['post_data'];
 
-if(check_spcl($_POST['tags'])==0){
-    $_SESSION['fail']="Sorry limited characters allowed in tags ";
-    header('location:edit_post.php');
-}else{
+// if(check_spcl($_POST['tags'])==0){
+//     $_SESSION['fail']="Sorry limited characters allowed in tags ";
+//     header('location:edit_post.php');
+// }else{
 $tags=$_POST['tags'];
-}
+// }
 
-if(check_spcl($_POST['category'])==0){
-    $_SESSION['fail']="Sorry limited characters allowed in category ";
-    header('location:edit_post.php');
-}else{
+// if(check_spcl($_POST['category'])==0){
+//     $_SESSION['fail']="Sorry limited characters allowed in category ";
+//     header('location:edit_post.php');
+// }else{
 $category=$_POST['category'];
-}
+// }
 
 $status="1";
 //$image=$_POST['image'];
