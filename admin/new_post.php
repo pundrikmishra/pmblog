@@ -1,3 +1,4 @@
+<?php include('../db/db_setup.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,41 @@
     <div class="container">
         <h1> Make A New Post</h1>
         <hr>
-        <form method="post" action="submit_post.php">
+        <?php
+        //for more then one error but this is not working.
+        if(isset($_SESSION['success']))
+        {
+            foreach($_SESSION['success'] as $success)
+            {
+                echo "<font color='green'><b>".$success."</b></font><br>";
+            }
+            
+            session_destroy();
+        }
+        elseif(isset($_SESSION['fail']))
+        {
+            foreach($_SESSION['fail'] as $_SESSION['fail'])
+            {
+                echo "<font color='red'><b>".$_SESSION['fail']."</b></font><br>";
+            }  
+            session_destroy();
+        }
+        // if(isset($_SESSION['success']))
+        // {
+            
+        //         echo "<font color='green'><b>".$success."</b></font><br>";
+            
+        //     session_destroy();
+        // }
+        // elseif(isset($_SESSION['fail']))
+        // {
+        //     echo "<font color='red'><b>".$_SESSION['fail']."</b></font><br>";    
+        //     session_destroy();
+        // }
+
+
+        ?>
+        <form method="post" action="submit_post.php" enctype="multipart/form-data" >
             <label>Enter Post Title</label><br>
             <input type="text" class="form-control" name="title"><br>
             <label>Enter A Short Description</label><br>
