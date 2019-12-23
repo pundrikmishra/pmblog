@@ -1,5 +1,7 @@
 <?php include('../db/db_setup.php') ?>
-<?php $data= get_all_data_from_table('blog'); ?>
+
+<?php $data= get_all_data_from_table('blog'); 
+// print_r($data);?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,11 +45,12 @@
 
 
         ?>
-        <table class="table table-hover">
+        <table class="table table-hover ">
             <tr>
                 <th>Index</th>
+                <th>Image</th>
                 <th>Title</th>
-                <th>Option</th>
+                <th colspan=3>Option</th>
             </tr>   
             <?php
                 for($i=0; $i<count($data);$i++)
@@ -55,22 +58,23 @@
                     $num=$i+1;
                     echo "<tr>";
                         echo "<td>".$num."</td>";
+                        echo "<td><img style='max-width:180px' src='../".$data[$i]['image']."'></img></td>";
                         echo "<td>".$data[$i]['title']."</td>";
                         //echo "<td>".'Edit'."</td>";
-                        echo "<td>";
-                            echo "<a href='edit_post.php?id=".$data[$i]['id']."'><div class='btn btn-default'>Edit</div></a>";
+                        echo "<td colspan=3>";
+                            echo "<a href='edit_post.php?id=".$data[$i]['id']."'><div class='btn btn-primary lg'>Edit</div></a>";
                             if($data[$i]['status']== 1){
-                                echo "<a href='post_opr.php?id=".$data[$i]['id']."&opr=lock'><div class='btn btn-default'>Lock</div></a>";
+                                echo "<a href='post_opr.php?id=".$data[$i]['id']."&opr=lock'><div class='btn btn-success lg'>Lock</div></a>";
                             }else {
-                                echo "<a href='post_opr.php?id=".$data[$i]['id']."&opr=unlock'><div class='btn btn-default'>Unlock</div></a>";
+                                echo "<a href='post_opr.php?id=".$data[$i]['id']."&opr=unlock'><div class='btn btn-warning lg'>Unlock</div></a>";
                             }
-                            echo "<a href='post_opr.php?id=".$data[$i]['id']."&opr=del'><div class='btn btn-default'>Delete</div></a>";
+                            echo "<a href='post_opr.php?id=".$data[$i]['id']."&opr=del'><div class='btn btn-danger lg'>Delete</div></a>";
                         echo "</d>";
                     echo "</tr>";
                 }
             ?>
         </table>
-
+        
     </div>
 <?php   include('panel_script.php');   ?>    
 </body> 

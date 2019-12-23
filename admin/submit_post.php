@@ -40,25 +40,24 @@ foreach($format as $ext)
     }
 
 }
- if($new_image)
- {
-     $target='../img/'.$new_image;
-     if(move_uploaded_file($image_file['tmp_name'],$target))
-     {
-         echo "File Uploaded Sucessfully";
-         $image='img/'.$new_image;
-
-     }
-     else
+if($new_image)
+{
+    $target='../img/'.$new_image;
+    if(move_uploaded_file($image_file['tmp_name'],$target))
     {
-          $_SESSION['fail'][]= "unable to uploade file";
-     }
+        echo "File Uploaded Sucessfully";
+        $image='img/'.$new_image;
 
- }
- else {
-     $_SESSION['fail'][]="Please Upload An image file";
- }
+    }
+    else
+    {
+        $_SESSION['fail'][]= "unable to uploade file";
+    }
 
+}
+else {
+    $_SESSION['fail'][]="Please Upload An image file";
+}
 if(!isset($_SESSION['fail'])){
     $query ="INSERT INTO `blog`(`title`, `date`, `auth`, `s_desc`, `description`, `tags`, `category`, `status`,`image`) VALUES ('".$title."','".$date."','".$auth."','".$s_desc."','".$post_data."','".$tags."','".$category."','".$status."','".$image."')";
     //$conn->exec($query);

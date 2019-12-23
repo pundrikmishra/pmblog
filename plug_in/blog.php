@@ -25,22 +25,23 @@
 <div class="container">
     <?php
     for($i=0; $i<count($data); $i++){
+        if($data[$i]['status']=='1'){
     ?>
-    
-    <div class="row">
-        <div class="col-md-2">
-            <img src="<?php echo $data[$i]['image'];?>" class="img-thumbnail">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="<?php echo $data[$i]['image'];?>" class="img-thumbnail">
+            </div>
+            <div class="col-md-9">
+                <h3><a href="post.php?id=<?php echo $data[$i]['id'];?>"><?php echo $data[$i]['title'];?></a></h3>
+                <p> <?php echo $data[$i]['s_desc'];?><p>
+                <p><address><?php echo $data[$i]['auth'];?></address>
+            </div>    
         </div>
-        <div class="col-md-9">
-            <h3><a href="post.php?id=<?php echo $data[$i]['id'];?>"><?php echo $data[$i]['title'];?></a></h3>
-            <p> <?php echo $data[$i]['s_desc'];?><p>
-            <p><address><?php echo $data[$i]['auth'];?></address>
-        </div>    
-    </div>
-    <hr>
+        <hr>
 
     <?php
     }
+}
     ?>
 
 </div>
