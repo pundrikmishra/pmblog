@@ -2,7 +2,7 @@
 if(isset($_GET['id'])){
     $ref_id=$_GET['id'];
     $data= get_data_by_id('blog',$ref_id);
-    print_r($data);
+    // print_r($data);
 }else {
     header('location:dashboard.php');
 }
