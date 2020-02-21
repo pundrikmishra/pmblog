@@ -1,6 +1,9 @@
 <?php include('../db/db_setup.php') ?>
 
-<?php $data= get_all_data_from_table('blog'); 
+<?php $data= get_all_data_from_table('blog');
+if(!isset($_SESSION['a_username'])){
+    header('location:index.php');
+    } 
 // print_r($data);?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +14,7 @@
     <div class="container">
         <h1>Blog Dashboard</h1>
         <hr>
+        <a href='new_post.php'><input class='btn btn-success lg'  name="Sign" value="Signup"></><br><br><br><br>
         <?php
         //for more then one error but this is not working.
         if(isset($_SESSION['success']))

@@ -4,27 +4,27 @@ include('../db/db_setup.php');
 if(check_spcl($_POST['title'])==0){
     $_SESSION['fail'][]="Sorry limited characters allowed in title ";
 }else{
-    $title=$_POST['title'];
+    $title=addslashes($_POST['title']);
 }
 
 $date=date('d-m-y');
 
 $auth="pm";
 
-$s_desc=$_POST['s_desc'];
+$s_desc=addslashes($_POST['s_desc']);
 
-$post_data=$_POST['post_data'];
+$post_data=addslashes($_POST['post_data']);
 
 if(check_spcl($_POST['tags'])==0){
     $_SESSION['fail'][]="Sorry limited characters allowed in tags ";
 }else{
-$tags=$_POST['tags'];
+$tags=addslashes($_POST['tags']);
 }
 
 if(check_spcl($_POST['category'])==0){
     $_SESSION['fail'][]="Sorry limited characters allowed in category ";
 }else{
-$category=$_POST['category'];
+$category=addslashes($_POST['category']=0);                                                                     
 }
 
 $status="1";
@@ -36,7 +36,7 @@ foreach($format as $ext)
 {
     if ($ext == $temp[1])
     {
-        $new_image=$image_file['name'];
+        $new_image=addslashes($image_file['name']);
     }
 
 }

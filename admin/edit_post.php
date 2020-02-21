@@ -1,4 +1,7 @@
 <?php include('../db/db_setup.php');
+if(!isset($_SESSION['a_username'])){
+    header('location:index.php');
+    }
 if(isset($_GET['id'])){
     $ref_id=$_GET['id'];
     $data= get_data_by_id('blog',$ref_id);

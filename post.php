@@ -1,6 +1,11 @@
 <?php include_once('db/db_setup.php');
+if(isset($_GET['id'])){
 $val=$_GET['id'];
 $data=get_data_by_key('id',$val,'blog');
+}
+else {
+    header('location:index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

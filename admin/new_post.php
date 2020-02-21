@@ -1,4 +1,9 @@
-<?php include('../db/db_setup.php') ?>
+<?php 
+include('../db/db_setup.php');
+if(!isset($_SESSION['a_username'])){
+    header('location:index.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
